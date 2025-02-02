@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { roboto } from '@/app/ui/fonts';
 import '@/app/ui/globals.css';
 
+import { ThemeProvider } from '@/app/ui/theme-provider';
+
 import Navbar from './ui/navbar/Navbar';
 import Footer from './ui/footer/Footer';
 export const metadata: Metadata = {
@@ -15,13 +17,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html suppressHydrationWarning lang="en">
       <body className={`${roboto.className} antialiased`}>
-        <header>
-          <Navbar />
-        </header>
-        <main>{children}</main>
-        <footer><Footer/></footer>
+        {' '}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <header>
+            <Navbar />
+          </header>
+          <main>{children}</main>
+          <footer>
+            <Footer />
+          </footer>
+        </ThemeProvider>
       </body>
     </html>
   );
