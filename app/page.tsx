@@ -8,7 +8,6 @@ import {
   CardContent,
 } from '@/components/ui/card';
 
-import { ModeToggle } from '@/app/ui/theme-toggle';
 
 export default function Home() {
   return (
