@@ -1,12 +1,16 @@
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import Image from 'next/image';
 
-export function RegisterForm({ className, ...props }: React.ComponentProps<"div">) {
+export function RegisterForm({
+  className,
+  ...props
+}: React.ComponentProps<'div'>) {
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
+    <div className={cn('flex flex-col gap-6', className)} {...props}>
       <Card className="overflow-hidden">
         <CardContent className="grid p-0 md:grid-cols-2">
           <form className="p-6 md:p-8">
@@ -23,7 +27,12 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"div"
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="m@example.com" required />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="m@example.com"
+                  required
+                />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="password">Password</Label>
@@ -50,6 +59,15 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"div"
               </div>
             </div>
           </form>
+          <div className="relative hidden bg-muted md:block">
+            <Image
+              src="/login-image.jpg"
+              alt="Image"
+              className="absolute inset-0 object-cover brightness-[0.4] grayscale"
+              fill
+              priority
+            />
+          </div>
         </CardContent>
       </Card>
     </div>
